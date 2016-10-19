@@ -1,0 +1,23 @@
+<head>
+  <title>learning-meteor</title>
+</head>
+
+<body>
+
+	<ul>
+		{{#each resolutions}}
+		{{title}}
+  		{{> resolution}}
+		{{/each}}
+	</ul>
+	{{> googleMap}}
+</body>
+
+<template name="resolution">
+  <li>Title</li>
+</template>
+<template name="googleMap">
+  <div class="map-canvas" style="width: 100%; height: 100%"></div>
+</template>
+
+
