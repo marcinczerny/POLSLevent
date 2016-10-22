@@ -1,4 +1,300 @@
-/* CSS declarations go here */
-body{
-background: yellow;
+body {
+	font-family: "Georgia", "Times New Roman", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666;
+	background:  url(bg_body.gif) repeat-x top left;;
+	text-align: center;
+	margin: 0;
 }
+
+#wrapper {
+	width: 988px;
+	margin: 0 auto;
+	text-align: left;
+	background: url(bg_header.gif) no-repeat;
+}
+
+a {
+	color: #47add9;
+	text-decoration: none;
+}
+
+p {
+	color: #666;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#logo {
+	float: left;
+	padding-top: -40px;
+}
+
+#logo h2 {
+	font-size: 26px;
+	font-weight: bold;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	color: #909090;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding-left: 25px;
+	
+}
+
+.light_logo {
+	color: #a74328;
+}
+
+#logo a {
+	text-decoration: none;
+	border: 0px;
+}
+
+#menu {
+	height: 50px;
+	float: right;
+}
+
+#menu ul {
+	list-style: none;
+	margin: 0;
+	height: 50px;
+	padding: 0px 0px 0px 0px;
+}
+
+#menu li {
+	display: block;
+	float: left;
+	font-family: Arial;
+	color: #FFF;
+}
+
+#menu a {
+	color: #909090;
+	font-size: 14px;
+	display: block;
+	float: left;
+	padding: 35px 20px 35px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+#menu a:hover {
+	color: #47add9;
+}
+
+#search_top {
+	float: right;
+	margin-top: 55px;
+	background: url(bg_trs.png);
+}
+
+#search_top input {
+	background: url(search_ico.png) no-repeat right;
+	border: 1px solid #333;
+	padding: 8px;
+	color: #FFF;
+}
+	
+#header {
+	float: left;
+	width: 988px;
+	height: 97px;
+	background: url(bg_header.gif) no-repeat;
+}
+
+#title_head {
+	float: left;
+	padding-left: 50px;
+	margin-top: 30px;
+}
+
+#title_head h2 {
+	color: #F1F1F1;
+	font-size: 26px;
+	font-weight: normal;
+	text-shadow: #a74328 0px 0px 1px;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+#title_head p {
+	color: #F1F1F1;
+	font-size: 16px;
+}
+
+.margin1 {
+	margin-left: 15px;
+}
+
+.margin2 {
+	margin-left: 40px;
+}
+
+.margin3 {
+	margin-top: 10px;
+}
+
+#container {
+	float: left;
+	margin-bottom: 30px;
+	width: 988px;
+	background: url(border.gif) repeat-y;
+}
+
+h2 {
+	font-size: 22px;
+	font-weight:normal;
+	color: #a74328;
+}
+
+#sidebar {
+	width: 280px;
+	float: left;
+}
+
+#sidebar h1{
+	color: white;
+	font-size: 26px;
+	text-align: center;
+	background-color: #47add9;
+	font-weight: normal;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+#solid {
+	width: 660px;
+	float: left;
+	padding: 5px;
+	margin-left: 30px;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+#solid p {
+	font-family: "Times New Roman", Times, serif;
+	line-height: 22px;
+	font-size: 13px;
+	text-align: justify;
+	color: #666;
+}
+
+.solid_title1 {
+	font-size: 26px;
+	color: #909090;
+}
+
+.solid_title2 {
+	font-size: 48px;
+	color: #47add9;
+	margin-top: -15px;
+}
+
+#solid_box {
+	width: 300px;
+	color: #666666;
+	padding: 5px;
+	float: left;
+	text-align: justify;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.right {
+	float: right;
+}
+
+#border {
+	border-top: 1px solid #EDEDED;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: -5px;
+	float: left;
+}
+
+#solid_box h2 {
+	color: #666;
+	font-size: 18px;
+}
+
+#solid_box p {
+	font-size: 13px;
+	font-family: "Times New Roman", Times, serif;
+}
+
+#solid_boximg {
+	float: left;
+	height: 100px;
+	margin-right: 20px;
+	margin-top: 20px;
+}
+
+#content_box {
+	width: 257px;
+	color: #666666;
+	padding: 10px;
+	float: left;
+	text-align: justify;
+	border: 1px solid #ededed;
+	margin-bottom: 40px;
+}
+
+#content_boxl, #content_boxl a {
+	width: 250px;
+	color: #666666;
+	padding: 10px;
+	float: left;
+	text-align: justify;
+	border: 1px solid #ededed;
+	margin-top: 40px;
+}
+
+#content_boxl a:hover {
+	border: 1px solid #ededed;
+	border: 1px solid #EDEDED;
+
+}
+
+#content_box h2 {
+	font-size: 18px;
+	font-weight: normal;
+	font-family: "Trebuchet MS", Tahoma, Arial, Helvetica, Sans-serif;
+	color: #47add9;
+	padding: 0 0 0px 0;
+}
+
+#content_box p, #content_box a {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: #666;
+}
+
+#content_box p a:hover {
+	color: #47add9;
+	text-decoration: none;
+}
+
+#content_box a:hover {
+	color: #FFF;
+}
+
+#content_box_rm {
+	float: right;
+}
+
+#footer {
+	width: 1000px;
+	float: left;
+	font-size: 12px;
+	margin: 0 auto;
+	color: #333333;
+	border-top: 1px solid #666;
+}
+
+#footer a {
+	color: #47add9;
+}
+
