@@ -1,5 +1,5 @@
 {
-  "name": "learning-meteor",
+  "name": "POLSLevent",
   "private": true,
   "scripts": {
     "start": "meteor run"
