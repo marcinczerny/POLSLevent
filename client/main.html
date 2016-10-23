@@ -1,23 +1,80 @@
 <head>
-  <title>learning-meteor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>POLSLevent</title>
+ 
 </head>
 
 <body>
-
-	<ul>
-		{{#each resolutions}}
-		{{title}}
-  		{{> resolution}}
-		{{/each}}
-	</ul>
-	{{> googleMap}}
+  <div id="wrapper">
+  <div id="header">
+    <div id="logo">
+    <a href="#">
+        <img src="logo1.png" alt="logo" />
+    </a>
+    </div>
+    <div id="menu">
+        <ul>
+        <li><a href="#">Strona główna</a></li>
+        <li><a href="#">O mnie</a></li>
+        <li><a href="#">Oferta</a></li>
+        <li><a href="#">Zaloguj się</a></li>
+        </ul>
+    </div>
+    </div>
+    <div id="container">
+    <div id="sidebar">
+    <h1>Najnowsze wydarzenia</h1>
+    <div id="content_box">
+    <h2>TRES</h2>
+    <p><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac erat eget urna faucibus pellentesque sit amet eget metus.</a></p>
+    </div>
+    <div id="content_box">
+    <h2>QUATRO</h2>
+    <p><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac erat eget urna faucibus pellentesque sit amet eget metus.</a>
+    {{> loginButtons}}</p>
+    </div>
+    </div>
+    <div id="solid" class="border">
+    <div class="solid_title1">Lorem ipsum</div>
+    <div class="solid_title2">Witaj na naszej stronie</div>
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae enim eget erat adipiscing suscipit. Proin sit amet massa massa. Quisque massa lorem, tempor non pellentesque id, molestie at nulla. Donec commodo lacus non dui egestas non bibendum tellus cursus. Suspendisse sit amet est odio. Suspendisse semper, turpis eget feugiat venenatis, diam turpis euismod metus, nec bibendum orci purus vel augue. Suspendisse fringilla eros eget enim adipiscing tempor. Quisque id velit erat. Praesent nisl erat, pharetra mollis commodo a, consectetur ut mi. Nulla pulvinar tortor eu libero euismod vel congue ligula ullamcorper. Phasellus nec odio ac erat eleifend sagittis. Nam urna nisi, auctor a fringilla sed, tristique nec felis. Quisque purus enim, eleifend at ullamcorper eu, lobortis vel dui. Curabitur sed odio mi, vel vestibulum turpis. Etiam mollis augue sed dolor interdum eget auctor arcu dignissim. Fusce mattis blandit libero a imperdiet. 
+    </p>
+    <div id="solid_box">
+    <h2>UNO</h2>
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae enim eget erat adipiscing suscipit. Proin sit amet massa massa. Quisque massa lorem, tempor non pellentesque id, molestie at nulla. Donec commodo lacus non dui egestas non bibendum tellus cursus.
+    </p>
+    </div>
+    <div id="solid_box" class="margin2">
+    <h2>DOS</h2>
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae enim eget erat adipiscing suscipit. Proin sit amet massa massa. Quisque massa lorem, tempor non pellentesque id, molestie at nulla. Donec commodo lacus non dui egestas non bibendum tellus cursus.
+    </p>
+    </div>
+    <div id="border"></div>
+    <div id="solid_box">
+    <div id="solid_boximg">
+    <img src="icon_quote.gif" align="left" />
+    </div>
+    <a href="#">
+    <h2>Lorem ipsum</h2>
+    </a>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae enim eget erat adipiscing suscipit. Proin sit amet massa massa.</p>
+    </div>
+    <div id="solid_box" class="margin2">
+    <div id="solid_boximg">
+    <img src="icon_mail.gif" align="left" />
+    </div>
+    <a href="#">
+    <h2>Lorem ipsum</h2>
+    </a>    
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae enim eget erat adipiscing suscipit. Proin sit amet massa massa.</p>
+    </div>
+    </div>
+    </div>
+    <div id="footer">
+        <p>Github link:</p>
+    </div>
+    </div>
 </body>
-
-<template name="resolution">
-  <li>Title</li>
-</template>
-<template name="googleMap">
-  <div class="map-canvas" style="width: 100%; height: 100%"></div>
-</template>
-
-
