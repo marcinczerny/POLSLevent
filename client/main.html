@@ -5,7 +5,11 @@
 </head>
 
 <body>
-  <div id="wrapper">
+  
+</body>
+
+<template name="main">
+    <div id="wrapper">
   <div id="header">
     <div id="logo">
     <a href="#">
@@ -13,12 +17,7 @@
     </a>
     </div>
     <div id="menu">
-        <ul>
-        <li><a href="#">Strona główna</a></li>
-        <li><a href="#">O mnie</a></li>
-        <li><a href="#">Oferta</a></li>
-        <li><a href="#">Zaloguj się</a></li>
-        </ul>
+        {{> navigation}}
     </div>
     </div>
     <div id="container">
@@ -26,30 +25,53 @@
     <h1>Najnowsze wydarzenia</h1>
     <div id="content_box">
     <h2>TRES</h2>
-    <p><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac erat eget urna faucibus pellentesque sit amet eget metus.</a></p>
+    <p><a href="#">WYDARZENIE1</a></p>
     </div>
     <div id="content_box">
     <h2>QUATRO</h2>
-    <p><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac erat eget urna faucibus pellentesque sit amet eget metus.</a>
-    {{> loginButtons}}</p>
+    <p><a href="#">WYDARZENIE2</a></p>
     </div>
     </div>
     <div id="solid" class="border">
-    <div class="solid_title1">Lorem ipsum</div>
-    <div class="solid_title2">Witaj na naszej stronie</div>
+    <div class="solid_title1">Tytul1</div>
+    <div class="solid_title2">Tytul2</div>
     <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae enim eget erat adipiscing suscipit. Proin sit amet massa massa. Quisque massa lorem, tempor non pellentesque id, molestie at nulla. Donec commodo lacus non dui egestas non bibendum tellus cursus. Suspendisse sit amet est odio. Suspendisse semper, turpis eget feugiat venenatis, diam turpis euismod metus, nec bibendum orci purus vel augue. Suspendisse fringilla eros eget enim adipiscing tempor. Quisque id velit erat. Praesent nisl erat, pharetra mollis commodo a, consectetur ut mi. Nulla pulvinar tortor eu libero euismod vel congue ligula ullamcorper. Phasellus nec odio ac erat eleifend sagittis. Nam urna nisi, auctor a fringilla sed, tristique nec felis. Quisque purus enim, eleifend at ullamcorper eu, lobortis vel dui. Curabitur sed odio mi, vel vestibulum turpis. Etiam mollis augue sed dolor interdum eget auctor arcu dignissim. Fusce mattis blandit libero a imperdiet. 
+    Tekscik.
     </p>
-    <div id="solid_box">
+   {{> yield}}
+   {{> lists}}
+    </div>
+    </div>
+    <div id="footer">
+        <p>Github link:</p>
+    </div>
+    </div>
+</template>
+
+<template name="navigation">
+    <ul>
+        <li><a href="{{pathFor route='home'}}">Strona główna</a></li>
+        {{#if currentUser}}
+        <li><a href="#" class="logout">Wyloguj się</a></li>
+        {{else}}
+        <li><a href="{{pathFor route='register'}}">Rejestracja</a></li>
+        <li><a href="{{pathFor route='login'}}">Zaloguj się</a></li>
+        {{/if}}
+    </ul>
+</template>
+
+<template name="home">
+    <h2>Home</h2>
+     <div id="solid_box">
     <h2>UNO</h2>
     <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae enim eget erat adipiscing suscipit. Proin sit amet massa massa. Quisque massa lorem, tempor non pellentesque id, molestie at nulla. Donec commodo lacus non dui egestas non bibendum tellus cursus.
+    Tekscik_lewo.
     </p>
     </div>
     <div id="solid_box" class="margin2">
     <h2>DOS</h2>
     <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae enim eget erat adipiscing suscipit. Proin sit amet massa massa. Quisque massa lorem, tempor non pellentesque id, molestie at nulla. Donec commodo lacus non dui egestas non bibendum tellus cursus.
+    Tekscik_prawo.
     </p>
     </div>
     <div id="border"></div>
@@ -58,23 +80,88 @@
     <img src="icon_quote.gif" align="left" />
     </div>
     <a href="#">
-    <h2>Lorem ipsum</h2>
+    <h2>CINCO</h2>
     </a>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae enim eget erat adipiscing suscipit. Proin sit amet massa massa.</p>
+    <p>Tekscik_dol_lewo.</p>
     </div>
     <div id="solid_box" class="margin2">
     <div id="solid_boximg">
     <img src="icon_mail.gif" align="left" />
     </div>
     <a href="#">
-    <h2>Lorem ipsum</h2>
+    <h2>SEIS</h2>
     </a>    
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae enim eget erat adipiscing suscipit. Proin sit amet massa massa.</p>
+    <p>Tekscik_dol_prawo.</p>
     </div>
-    </div>
-    </div>
-    <div id="footer">
-        <p>Github link:</p>
-    </div>
-    </div>
-</body>
+</template>
+
+<template name="register">
+    <h2>Register</h2>
+    <form class="register">
+        <p>Username: <input type="username" name="username"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <p><input type="submit" value="Register"></p>
+    </form>
+</template>
+
+<template name="login">
+    <h2>Login</h2>
+    <form class="login">
+        <p>Username: <input type="username" name="username"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <p><input type="submit" value="Login"></p>
+    </form>
+</template>
+
+<template name="addList">
+    <form>Create a list:
+        <input type="text" placeholder="List name here..." name="listName">
+    </form>
+</template>
+
+<template name="lists">
+    <h2>Lists</h2>
+    {{> addList}}
+    <ul>
+        {{#each list}}
+            <li><a href="{{pathFor route='listPage'}}">{{name}}</a></li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="listPage">
+    <h2>Tasks: {{name}}</h2>
+    {{> todos}}
+</template>
+
+<template name="todos">
+{{> addTodo}}
+    <ul>
+    {{#each todo}}
+        {{>todoItem}}
+    {{/each}}
+    </ul>
+{{> todosCount}}
+</template>
+
+<template name="todoItem">
+    <li class="{{checked}}">
+        <input type="checkbox" {{checked}}>
+        <input type="text" value="{{name}}" name="todoItem">
+        [<a href="#" class="delete-todo">Delete</a>]
+    </li>
+</template>
+
+<template name="addTodo">
+    <form>
+        Create a task:
+        <input type="text" placeholder="Type a task here..." name="todoName">
+    </form>
+</template>
+
+<template name="todosCount">
+{{#if totalTodos}}
+    <p>You have completed {{completedTodos}} out of {{totalTodos}} tasks.</p>
+{{/if}}
+</template>
+
