@@ -4,12 +4,22 @@ import { Template } from 'meteor/templating';
 
 Lists = new Meteor.Collection('lists');
 Todos = new Mongo.Collection('todos');
+Markers = new Mongo.Collection('markers');
 
 Accounts.ui.config({
 
   passwordSignupFields: 'USERNAME_ONLY',
 
 });
+
+
+
+//Accounts.ui.config({
+
+  //passwordSignupFields: 'USERNAME_ONLY',
+
+//});
+
 
 Router.configure({
     layoutTemplate: 'main'
@@ -29,7 +39,56 @@ Router.route('/list/:_id', {
         return Lists.findOne({ _id: currentList });
     },
 });
+Template.map.onCreated(function() {
+    GoogleMaps.ready('map', function(map) {
+      google.maps.event.addListener(map.instance, 'click', function(event) {
+        Markers.insert({ lat: event.latLng.lat(), lng: event.latLng.lng() });
+      });
 
+      var markers = {};
+
+      Markers.find().observe({
+        added: function (document) {
+          var marker = new google.maps.Marker({
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            position: new google.maps.LatLng(document.lat, document.lng),
+            map: map.instance,
+            id: document._id
+          });
+
+          google.maps.event.addListener(marker, 'dragend', function(event) {
+            Markers.update(marker.id, { $set: { lat: event.latLng.lat(), lng: event.latLng.lng() }});
+          });
+
+          markers[document._id] = marker;
+        },
+        changed: function (newDocument, oldDocument) {
+          markers[newDocument._id].setPosition({ lat: newDocument.lat, lng: newDocument.lng });
+        },
+        removed: function (oldDocument) {
+          markers[oldDocument._id].setMap(null);
+          google.maps.event.clearInstanceListeners(markers[oldDocument._id]);
+          delete markers[oldDocument._id];
+        }
+      });
+    });
+  });
+
+Meteor.startup(function() {
+  GoogleMaps.load();
+});
+
+Template.map.helpers({
+  mapOptions: function() {
+    if (GoogleMaps.loaded()) {
+      return {
+        center: new google.maps.LatLng(50.2880701, 18.6778916),
+        zoom: 15
+      };
+    }
+  }
+});
 Template.addList.events({
     'submit form': function(event){
       event.preventDefault();
@@ -151,7 +210,7 @@ Template.register.events({
         	console.log(error.reason);
    			} else {
         	Router.go("home");
-    	}  
+    	}
 		});
     }
 });
@@ -162,8 +221,5 @@ Template.navigation.events({
         Meteor.logout();
         Router.go('login');
     }
+
 });
-
-
-
-

@@ -1,11 +1,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>POLSLevent</title>
- 
+
 </head>
 
 <body>
-  
+
 </body>
 
 <template name="main">
@@ -23,6 +23,11 @@
     <div id="container">
     <div id="sidebar">
     <h1>Najnowsze wydarzenia</h1>
+    <div id="mapa">
+    <h2>Moje wydarzenia</h2>
+    <h3> Mapa wydarzeń</h3>
+    <p>      {{> map}}</p>
+  </div>
     <div id="content_box">
     <h2>TRES</h2>
     <p><a href="#">WYDARZENIE1</a></p>
@@ -43,7 +48,7 @@
     </div>
     </div>
     <div id="footer">
-        <p>Github link:</p>
+        <p>Github link: <a href="https://github.com/marcinczerny/POLSLevent.git">https://github.com/marcinczerny/POLSLevent.git</a></p>
     </div>
     </div>
 </template>
@@ -71,6 +76,7 @@
     <div id="solid_box" class="margin2">
     <h2>DOS</h2>
     <p>
+
     Tekscik_prawo.
     </p>
     </div>
@@ -90,7 +96,7 @@
     </div>
     <a href="#">
     <h2>SEIS</h2>
-    </a>    
+    </a>
     <p>Tekscik_dol_prawo.</p>
     </div>
 </template>
@@ -165,3 +171,12 @@
 {{/if}}
 </template>
 
+<template name="map">
+  <div class="map-containers">
+    {{#unless geolocationError}}
+      {{> googleMap name="map" options=mapOptions}}
+    {{else}}
+      Geolocation failed: {{geolocationError}}
+    {{/unless}}
+  </div>
+</template>
