@@ -56,7 +56,13 @@ Template.map.onCreated(function() {
             map: map.instance,
             id: document._id
           });
+          marker.addListener('click', function() {
+            var zmienna=marker.id;
+            markers[document._id] = marker;
+            marker.setMap(null);
 
+            Markers.remove({_id: zmienna });
+          });
           google.maps.event.addListener(marker, 'dragend', function(event) {
             Markers.update(marker.id, { $set: { lat: event.latLng.lat(), lng: event.latLng.lng() }});
           });
@@ -70,6 +76,7 @@ Template.map.onCreated(function() {
           markers[oldDocument._id].setMap(null);
           google.maps.event.clearInstanceListeners(markers[oldDocument._id]);
           delete markers[oldDocument._id];
+          //Markers.remove({_id: oldDocument._id});
         }
       });
     });

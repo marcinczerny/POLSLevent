@@ -29,11 +29,11 @@
     <p>      {{> map}}</p>
   </div>
     <div id="content_box">
-    <h2>TRES</h2>
+    <h2>Trzy</h2>
     <p><a href="#">WYDARZENIE1</a></p>
     </div>
     <div id="content_box">
-    <h2>QUATRO</h2>
+    <h2>Cztery</h2>
     <p><a href="#">WYDARZENIE2</a></p>
     </div>
     </div>
@@ -68,13 +68,13 @@
 <template name="home">
     <h2>Home</h2>
      <div id="solid_box">
-    <h2>UNO</h2>
+    <h2>Jeden</h2>
     <p>
     Tekscik_lewo.
     </p>
     </div>
     <div id="solid_box" class="margin2">
-    <h2>DOS</h2>
+    <h2>Dwa</h2>
     <p>
 
     Tekscik_prawo.
@@ -86,7 +86,7 @@
     <img src="icon_quote.gif" align="left" />
     </div>
     <a href="#">
-    <h2>CINCO</h2>
+    <h2>pięć</h2>
     </a>
     <p>Tekscik_dol_lewo.</p>
     </div>
@@ -95,17 +95,17 @@
     <img src="icon_mail.gif" align="left" />
     </div>
     <a href="#">
-    <h2>SEIS</h2>
+    <h2>sześć</h2>
     </a>
     <p>Tekscik_dol_prawo.</p>
     </div>
 </template>
 
 <template name="register">
-    <h2>Register</h2>
+    <h2>Rejestracja</h2>
     <form class="register">
-        <p>Username: <input type="username" name="username"></p>
-        <p>Password: <input type="password" name="password"></p>
+        <p>Nazwa użytkownika: <input type="username" name="username"></p>
+        <p>Hasło: <input type="password" name="password"></p>
         <p><input type="submit" value="Register"></p>
     </form>
 </template>
@@ -113,20 +113,20 @@
 <template name="login">
     <h2>Login</h2>
     <form class="login">
-        <p>Username: <input type="username" name="username"></p>
-        <p>Password: <input type="password" name="password"></p>
+        <p>Nazwa użytkownika: <input type="username" name="username"></p>
+        <p>Hasło: <input type="password" name="password"></p>
         <p><input type="submit" value="Login"></p>
     </form>
 </template>
 
 <template name="addList">
-    <form>Create a list:
+    <form>Stwórz listę:
         <input type="text" placeholder="List name here..." name="listName">
     </form>
 </template>
 
 <template name="lists">
-    <h2>Lists</h2>
+    <h2>Listy</h2>
     {{> addList}}
     <ul>
         {{#each list}}
@@ -136,7 +136,7 @@
 </template>
 
 <template name="listPage">
-    <h2>Tasks: {{name}}</h2>
+    <h2>Zadania: {{name}}</h2>
     {{> todos}}
 </template>
 
@@ -160,8 +160,8 @@
 
 <template name="addTodo">
     <form>
-        Create a task:
-        <input type="text" placeholder="Type a task here..." name="todoName">
+        Stwórz zadanie:
+        <input type="text" placeholder="Wpisz tutaj zadanie..." name="todoName">
     </form>
 </template>
 
@@ -172,7 +172,10 @@
 </template>
 
 <template name="map">
+
   <div class="map-containers">
+
+
     {{#unless geolocationError}}
       {{> googleMap name="map" options=mapOptions}}
     {{else}}
