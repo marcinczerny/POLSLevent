@@ -23,6 +23,7 @@
 a {
 	color: #47add9;
 	text-decoration: none;
+	outline: 0;
 }
 
 p {
@@ -82,7 +83,7 @@ a:hover {
 	font-size: 14px;
 	display: block;
 	float: left;
-	padding: 35px 20px 35px 20px;
+	padding: 35px 20px 35px 30px;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -145,11 +146,16 @@ a:hover {
 	margin-top: 10px;
 }
 
+.margin4 {
+	margin-left: 225px;
+}
+
 #container {
 	float: left;
 	margin-bottom: 30px;
 	width: 988px;
 	background: url(border.gif) repeat-y;
+	cursor: default;
 }
 
 h2 {
@@ -335,4 +341,58 @@ h2 {
 .checked [name=todoItem]:hover,
 .checked [name=todoItem]:focus{
     background-color:#f0f0f0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 60px;
+    background-color: #f9f9f9;
+    min-width: 190px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+input[type=username] {
+    padding: 4px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+input[type=password] {
+    padding: 4px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+input[type=submit] {
+	width: 150px;
+	margin-left: 32px;
+    background-color: #47add9;
+    border: none;
+    color: white;
+    padding: 12px 26px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+input[type=submit]:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input[type=submit]:active {
+    background-color: #47add9;
+  	transform: translateY(4px);
 }

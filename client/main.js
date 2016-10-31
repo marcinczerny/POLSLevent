@@ -12,21 +12,18 @@ Accounts.ui.config({
 
 });
 
-
-
-//Accounts.ui.config({
-
-  //passwordSignupFields: 'USERNAME_ONLY',
-
-//});
-
-
 Router.configure({
     layoutTemplate: 'main'
 });
 
 Router.route('/register');
 Router.route('/login');
+Router.route('/eventy');
+Router.route('/moje_eventy');
+Router.route('/dodaj_event');
+Router.route('/grupy');
+Router.route('/moje_grupy');
+Router.route('/dodaj_grupe');
 Router.route('/',{
 	 name: 'home',
 	 template: 'home'
@@ -100,23 +97,35 @@ Template.addList.events({
     'submit form': function(event){
       event.preventDefault();
       var listName = $('[name=listName]').val();
+      var currentUser = Meteor.userId();
       Lists.insert({
-          name: listName
-      });
+          name: listName,
+          createdBy: currentUser
+      },function(error, results){
+        Router.go('listPage', { _id: results });
+  		});
       $('[name=listName]').val('');
+    }
+});
+
+Template.lists_all.helpers({
+    'list': function(){
+        return Lists.find({}, {sort: {name: 1}});
     }
 });
 
 Template.lists.helpers({
     'list': function(){
-        return Lists.find({}, {sort: {name: 1}});
+    	var currentUser = Meteor.userId();
+        return Lists.find({createdBy: currentUser}, {sort: {name: 1}});
     }
 });
 
 Template.todos.helpers({
     'todo': function(){
         var currentList = this._id;
-        return Todos.find({ listId: currentList }, {sort: {createdAt: -1}})
+        var currentUser = Meteor.userId();
+        return Todos.find({ listId: currentList, createdBy: currentUser }, {sort: {createdAt: -1}})
     }
 });
 
@@ -124,11 +133,13 @@ Template.addTodo.events({
     'submit form': function(event){
     event.preventDefault();
     var todoName = $('[name="todoName"]').val();
+    var currentUser = Meteor.userId();
     var currentList = this._id;
     Todos.insert({
         name: todoName,
         completed: false,
         createdAt: new Date(),
+        createdBy: currentUser,
         listId: currentList
     });
     $('[name="todoName"]').val('');

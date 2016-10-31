@@ -12,7 +12,7 @@
     <div id="wrapper">
   <div id="header">
     <div id="logo">
-    <a href="#">
+    <a href="{{pathFor route='home'}}">
         <img src="logo1.png" alt="logo" />
     </a>
     </div>
@@ -26,7 +26,7 @@
     <div id="mapa">
     <h2>Moje wydarzenia</h2>
     <h3> Mapa wydarzeń</h3>
-    <p>      {{> map}}</p>
+    <p>{{> map}}</p>
   </div>
     <div id="content_box">
     <h2>Trzy</h2>
@@ -38,13 +38,7 @@
     </div>
     </div>
     <div id="solid" class="border">
-    <div class="solid_title1">Tytul1</div>
-    <div class="solid_title2">Tytul2</div>
-    <p>
-    Tekscik.
-    </p>
    {{> yield}}
-   {{> lists}}
     </div>
     </div>
     <div id="footer">
@@ -57,6 +51,26 @@
     <ul>
         <li><a href="{{pathFor route='home'}}">Strona główna</a></li>
         {{#if currentUser}}
+        <li>
+        <div class="dropdown">
+        <a href="#">Eventy</a>
+        <div class="dropdown-content">
+        <a href="{{pathFor route='moje_eventy'}}">Moje eventy</a>
+        <a href="{{pathFor route='eventy'}}">Lista eventów</a>
+        <a href="{{pathFor route='dodaj_event'}}">Dodaj event</a>
+        </div>
+        </div>
+        </li>
+        <li>
+        <div class="dropdown">
+        <a href="#">Grupy</a>
+        <div class="dropdown-content">
+        <a href="{{pathFor route='moje_grupy'}}">Moje grupy</a>
+        <a href="{{pathFor route='grupy'}}">Lista grup</a>
+        <a href="{{pathFor route='dodaj_grupe'}}">Dodaj grupę</a>
+        </div>
+        </div>
+        </li>
         <li><a href="#" class="logout">Wyloguj się</a></li>
         {{else}}
         <li><a href="{{pathFor route='register'}}">Rejestracja</a></li>
@@ -66,6 +80,9 @@
 </template>
 
 <template name="home">
+    <div class="solid_title1">Tytul1</div>
+    <div class="solid_title2">Tytul2</div>
+    <p>Tekscik.</p>
     <h2>Home</h2>
      <div id="solid_box">
     <h2>Jeden</h2>
@@ -102,21 +119,60 @@
 </template>
 
 <template name="register">
-    <h2>Rejestracja</h2>
+ <div align="center">
+    <h2><br><br><br>Rejestracja<br><br></h2>
     <form class="register">
-        <p>Nazwa użytkownika: <input type="username" name="username"></p>
-        <p>Hasło: <input type="password" name="password"></p>
-        <p><input type="submit" value="Register"></p>
+    <div class="margin4">
+        <p>Nazwa użytkownika:</p>
+        <p><input type="username" name="username"></p>
+        <p>Hasło:</p>
+        <p><input type="password" name="password"></p>
+        <p><input type="submit" value="Rejestracja"></p>
+    </div>
     </form>
+ </div>
 </template>
 
 <template name="login">
-    <h2>Login</h2>
+ <div align="center">
+    <h2><br><br><br>Logowanie<br><br></h2>
     <form class="login">
-        <p>Nazwa użytkownika: <input type="username" name="username"></p>
-        <p>Hasło: <input type="password" name="password"></p>
-        <p><input type="submit" value="Login"></p>
+    <div class="margin4">
+        <p>Nazwa użytkownika:</p>
+        <p><input type="username" name="username"></p>
+        <p>Hasło:</p>
+        <p><input type="password" name="password"></p>
+        <p><input type="submit" value="Zaloguj"></p>
+    </div>
     </form>
+ </div>
+</template>
+
+<template name="eventy">
+    <h2>Lista eventów</h2>
+    {{> lists_all}}
+</template>
+
+<template name="mojeEventy">
+    <h2>Moje eventy</h2>
+   {{> lists}}
+</template>
+
+<template name="dodajEvent">
+    <h2>Dodaj event</h2>
+   {{> addList}}
+</template>
+
+<template name="grupy">
+    <h2>Lista grup</h2>
+</template>
+
+<template name="mojeGrupy">
+    <h2>Moje grupy</h2>
+</template>
+
+<template name="dodajGrupe">
+    <h2>Dodaj grupe</h2>
 </template>
 
 <template name="addList">
@@ -126,8 +182,14 @@
 </template>
 
 <template name="lists">
-    <h2>Listy</h2>
-    {{> addList}}
+    <ul>
+        {{#each list}}
+            <li><a href="{{pathFor route='listPage'}}">{{name}}</a></li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="lists_all">
     <ul>
         {{#each list}}
             <li><a href="{{pathFor route='listPage'}}">{{name}}</a></li>
