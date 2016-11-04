@@ -5,7 +5,8 @@ import { Template } from 'meteor/templating';
 Lists = new Meteor.Collection('lists');
 Todos = new Mongo.Collection('todos');
 Markers = new Mongo.Collection('markers');
-
+Markersinfo = new Meteor.Collection('Markersinfo');
+//Info = new Mongo.Collection('info');
 Accounts.ui.config({
 
   passwordSignupFields: 'USERNAME_ONLY',
@@ -39,30 +40,100 @@ Router.route('/list/:_id', {
 Template.map.onCreated(function() {
     GoogleMaps.ready('map', function(map) {
       google.maps.event.addListener(map.instance, 'click', function(event) {
-        Markers.insert({ lat: event.latLng.lat(), lng: event.latLng.lng() });
+        Markers.insert({ lat: event.latLng.lat(), lng: event.latLng.lng(), owner: Meteor.userId() });
       });
+      var curuser = Meteor.userId();
+      var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+       var image = {
+          url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          // This marker is 20 pixels wide by 32 pixels high.
+          size: new google.maps.Size(20, 32),
+          // The origin for this image is (0, 0).
+          origin: new google.maps.Point(0, 0),
+          // The anchor for this image is the base of the flagpole at (0, 32).
+          anchor: new google.maps.Point(0, 32)
+        };
+	 var shape = {
+          coords: [1, 1, 1, 20, 18, 20, 18, 1],
+          type: 'poly'
+        };
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+            'sandstone rock formation in the southern part of the '+
+            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+            'south west of the nearest large town, Alice Springs; 450&#160;km '+
+            '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+            'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+            'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+            'Aboriginal people of the area. It has many springs, waterholes, '+
+            'rock caves and ancient paintings. Uluru is listed as a World '+
+            'Heritage Site.</p>'+
+            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>';
 
+        
       var markers = {};
-
+      
       Markers.find().observe({
         added: function (document) {
+	
           var marker = new google.maps.Marker({
-            draggable: true,
+            draggable: false,
             animation: google.maps.Animation.DROP,
             position: new google.maps.LatLng(document.lat, document.lng),
             map: map.instance,
-            id: document._id
+            id: document._id,
+	    icon: image,
+            shape: shape,
+	     userId: document.owner,
+	    title: document.title,
+		
+	    
           });
-          marker.addListener('click', function() {
+	if(marker.userId){
+var markerinfo = Markersinfo.findOne({ createdBy: marker.userId});	
+
+ marker.info = new google.maps.InfoWindow({
+		          
+content: markerinfo.info
+        });}else {
+marker.info = new google.maps.InfoWindow({
+		          
+content: contentString});
+}
+
+	  if(Meteor.userId()==marker.userId){
+	    marker.addListener('dragend', function() {
+	      if(Meteor.userId()==marker.userId){Markers.update(marker.id, { $set: { lat: event.latLng.lat(), lng: event.latLng.lng() }});}
+	      else{throw new Meteor.Error('No Access!');}
+          });}
+          marker.addListener('rightclick', function() {
+		console.log("jestem tu");
+	    if(Meteor.userId()!=marker.userId){throw new Meteor.Error(marker.userId);}
+            console.log("Meteor.userId %s, \n marker user %s",Meteor.userId(),marker.userId);
             var zmienna=marker.id;
             markers[document._id] = marker;
             marker.setMap(null);
-
+	    
             Markers.remove({_id: zmienna });
           });
-          google.maps.event.addListener(marker, 'dragend', function(event) {
-            Markers.update(marker.id, { $set: { lat: event.latLng.lat(), lng: event.latLng.lng() }});
+	  marker.addListener('click', function() {
+	console.log(marker.info);
+          marker.info.open(map, marker);
+	    if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
           });
+        
 
           markers[document._id] = marker;
         },
@@ -135,14 +206,22 @@ Template.addTodo.events({
     var todoName = $('[name="todoName"]').val();
     var currentUser = Meteor.userId();
     var currentList = this._id;
+	var infowindows = $('[name=infos]').val();
+console.log(infowindows);
     Todos.insert({
         name: todoName,
         completed: false,
         createdAt: new Date(),
         createdBy: currentUser,
-        listId: currentList
+        listId: currentList,
+	info: infowindows
     });
-    $('[name="todoName"]').val('');
+	Markersinfo.insert({
+	createdBy: currentUser,
+	info: infowindows});
+var markerinfo =Markersinfo.findOne({ createdBy: currentUser});
+console.log(markerinfo.info);    
+$('[name="todoName"]').val('');
 }
 });
 
@@ -241,3 +320,5 @@ Template.navigation.events({
     }
 
 });
+
+
