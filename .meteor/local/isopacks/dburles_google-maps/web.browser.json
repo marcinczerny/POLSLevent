@@ -1,0 +1,49 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "GoogleMaps",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "templating",
+      "constraint": "1.0.9"
+    },
+    {
+      "package": "reactive-var",
+      "constraint": "1.0.3"
+    },
+    {
+      "package": "underscore",
+      "constraint": "1.0.1"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "html",
+      "file": "web.browser/google-maps.html",
+      "length": 106,
+      "offset": 0,
+      "path": "google-maps.html",
+      "hash": "5f6ed46f38415c43c1694c68b5d5f0f6b82680cf",
+      "fileOptions": {}
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/google-maps.js",
+      "length": 3318,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "google-maps.js",
+      "hash": "0257a40ce100df4c2d704aab6c7ebd45ca96def3",
+      "fileOptions": {}
+    }
+  ]
+}

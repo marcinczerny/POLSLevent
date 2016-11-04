@@ -1,0 +1,134 @@
+{
+  "builtBy": "meteor/22",
+  "unibuildDependencies": {
+    "os.json": {
+      "files": {
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps/package.js": "1b708a61bed54d00a7b9eca3a7b41644f7c799cb",
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps/google-maps-tests.js": "fd08bcb7f4e54a4dc1cb4ae512d228ed176ee2bf",
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps/google-maps.js": "0257a40ce100df4c2d704aab6c7ebd45ca96def3"
+      },
+      "directories": [
+        {
+          "absPath": "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps",
+          "include": [
+            "\\.js$"
+          ],
+          "exclude": [
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "names": [],
+          "contents": [
+            "google-maps-tests.js",
+            "google-maps.js",
+            "package.js"
+          ]
+        },
+        {
+          "absPath": "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps",
+          "include": [
+            "\\/$"
+          ],
+          "exclude": [
+            "^tests\\/$",
+            "^client\\/$",
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "contents": []
+        }
+      ]
+    },
+    "web.browser.json": {
+      "files": {
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps/package.js": "1b708a61bed54d00a7b9eca3a7b41644f7c799cb",
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps/google-maps.html": "5f6ed46f38415c43c1694c68b5d5f0f6b82680cf",
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps/google-maps.js": "0257a40ce100df4c2d704aab6c7ebd45ca96def3",
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps/google-maps-tests.js": "fd08bcb7f4e54a4dc1cb4ae512d228ed176ee2bf"
+      },
+      "directories": [
+        {
+          "absPath": "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps",
+          "include": [
+            "\\.css$",
+            "\\.html$",
+            "\\.js$"
+          ],
+          "exclude": [
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "names": [],
+          "contents": [
+            "google-maps-tests.js",
+            "google-maps.html",
+            "google-maps.js",
+            "package.js"
+          ]
+        },
+        {
+          "absPath": "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps",
+          "include": [
+            "\\/$"
+          ],
+          "exclude": [
+            "^tests\\/$",
+            "^server\\/$",
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "contents": []
+        }
+      ]
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps/package.js": "1b708a61bed54d00a7b9eca3a7b41644f7c799cb"
+    },
+    "directories": []
+  },
+  "pluginProviderPackageMap": {
+    "dburles:google-maps": {
+      "kind": "local",
+      "sourceRoot": "/home/marcin/Dokumenty/projectit/POLSLevent/packages/meteor-google-maps"
+    },
+    "meteor": {
+      "kind": "versioned",
+      "version": "1.2.17_1"
+    },
+    "templating": {
+      "kind": "versioned",
+      "version": "1.2.15"
+    },
+    "reactive-var": {
+      "kind": "versioned",
+      "version": "1.0.10"
+    },
+    "underscore": {
+      "kind": "versioned",
+      "version": "1.0.9"
+    },
+    "templating-compiler": {
+      "kind": "versioned",
+      "version": "1.2.15"
+    },
+    "templating-runtime": {
+      "kind": "versioned",
+      "version": "1.2.15"
+    }
+  },
+  "includeCordovaUnibuild": false
+}

@@ -1,0 +1,134 @@
+{
+  "builtBy": "meteor/22",
+  "unibuildDependencies": {
+    "os.json": {
+      "files": {
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2/package.js": "a35022d8a3bdaf0b4da7d66f7cfc15ade3d2f483",
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2/google-maps-tests.js": "fd08bcb7f4e54a4dc1cb4ae512d228ed176ee2bf",
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2/google-maps.js": "dfc795be8ffd39d5a66cf1b29ed3e9e3dee73d38"
+      },
+      "directories": [
+        {
+          "absPath": "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2",
+          "include": [
+            "\\.js$"
+          ],
+          "exclude": [
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "names": [],
+          "contents": [
+            "google-maps-tests.js",
+            "google-maps.js",
+            "package.js"
+          ]
+        },
+        {
+          "absPath": "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2",
+          "include": [
+            "\\/$"
+          ],
+          "exclude": [
+            "^tests\\/$",
+            "^client\\/$",
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "contents": []
+        }
+      ]
+    },
+    "web.browser.json": {
+      "files": {
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2/package.js": "a35022d8a3bdaf0b4da7d66f7cfc15ade3d2f483",
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2/google-maps.html": "aecc84d022d963fe5e5081541683e53fc949d697",
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2/google-maps.js": "dfc795be8ffd39d5a66cf1b29ed3e9e3dee73d38",
+        "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2/google-maps-tests.js": "fd08bcb7f4e54a4dc1cb4ae512d228ed176ee2bf"
+      },
+      "directories": [
+        {
+          "absPath": "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2",
+          "include": [
+            "\\.css$",
+            "\\.html$",
+            "\\.js$"
+          ],
+          "exclude": [
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "names": [],
+          "contents": [
+            "google-maps-tests.js",
+            "google-maps.html",
+            "google-maps.js",
+            "package.js"
+          ]
+        },
+        {
+          "absPath": "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2",
+          "include": [
+            "\\/$"
+          ],
+          "exclude": [
+            "^tests\\/$",
+            "^server\\/$",
+            "^\\.",
+            "\\.app-tests?.",
+            "\\.app-specs?.",
+            "\\.tests?.",
+            "\\.specs?."
+          ],
+          "contents": []
+        }
+      ]
+    }
+  },
+  "pluginDependencies": {
+    "files": {
+      "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2/package.js": "a35022d8a3bdaf0b4da7d66f7cfc15ade3d2f483"
+    },
+    "directories": []
+  },
+  "pluginProviderPackageMap": {
+    "dburles:google-maps-manually-modified2": {
+      "kind": "local",
+      "sourceRoot": "/home/marcin/Dokumenty/projectit/POLSLevent/packages/gmaps2"
+    },
+    "meteor": {
+      "kind": "versioned",
+      "version": "1.2.17_1"
+    },
+    "templating": {
+      "kind": "versioned",
+      "version": "1.2.15"
+    },
+    "reactive-var": {
+      "kind": "versioned",
+      "version": "1.0.10"
+    },
+    "underscore": {
+      "kind": "versioned",
+      "version": "1.0.9"
+    },
+    "templating-compiler": {
+      "kind": "versioned",
+      "version": "1.2.15"
+    },
+    "templating-runtime": {
+      "kind": "versioned",
+      "version": "1.2.15"
+    }
+  },
+  "includeCordovaUnibuild": false
+}

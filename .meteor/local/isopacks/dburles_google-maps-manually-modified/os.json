@@ -1,0 +1,22 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "templating",
+      "constraint": "1.0.9"
+    },
+    {
+      "package": "reactive-var",
+      "constraint": "1.0.3"
+    },
+    {
+      "package": "underscore",
+      "constraint": "1.0.1"
+    }
+  ],
+  "resources": []
+}
